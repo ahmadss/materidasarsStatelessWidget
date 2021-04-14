@@ -3,12 +3,14 @@
 Stateless Widget
 Jika kita melihat sebuah tampilan antar muka pengguna (user interface), tampilan tersebut terdiri dari berbagai jenis widget-widget, tetapi tidak semua tampilan harus bisa berinteraksi dengan user, misalnya sebuah Text, tampilan tersebut hanya menampilkan informasi, tetapi tidak untuk berinteraksi seperti user melakukan tap terhadap text tersebut. Pada saat kita membuat aplikasi flutter, maka kita akan mendapatkan kode bawaan (default) yang dihasilkan oleh flutter tersebut, ada beberapa widget pada aplikasi tersebut, tetapi hanya satu saja widget yang berinteraksi dengan user, yaitu tombol counter dimana user bisa melakukan click (tap) pada tombol tersebut, jadi dapat kita pahami widget yang lainnya hanya digunakan untuk menampilkan sesuatu, bukan untuk berinteraksi dengan user, widget yang tidak berinteraksi dengan user disebut Stateless Widget. Berikut ini adalah kode minimal yang diperlukan untuk membuat Stateless Widget:
 
+<p>
 class ExampleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return "kode beberapa widget disini";
   }
 }
+</p>
 
 Stateless widget diciptakan oleh parent widget didalam metode "build"nya. Stateless Widget diberikan informasi yang diperlukan pada saat diciptakan. Stateless widget menerima informasi berupa argumen dari parent widget didalam metode "build"nya, dimana informasi tersebut disimpan didalam variabel bersifat yang final.
 
