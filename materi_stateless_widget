@@ -1,0 +1,73 @@
+import 'dart:html';
+
+import 'package:flutter/material.dart';
+
+class MateriStatelessWidget extends StatefulWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: AppHome(title: 'Stateles Widget'),
+    );
+  }
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
+  }
+}
+
+class AppHome extends StatelessWidget {
+  AppHome({Key key, this.title}) : super(key: key);
+  String title;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(this.title),
+      ),
+      body: Column(
+        children: <Widget>[
+          // Text('Belajar Stateles Widget'),
+          // Text('ini adalah widget Text')
+
+          BookWidget(
+              "Buku 1",
+              "https://covers.openlibrary.org/b/id/240726-S.jpg",
+              "Deskripsi Buku satu"),
+          BookWidget(
+              "Buku 2",
+              "https://covers.openlibrary.org/b/id/6121771-S.jpg",
+              "Deskripsi Buku dua")
+        ],
+      ),
+    );
+  }
+}
+
+class BookWidget extends StatelessWidget {
+  final String judul;
+  final String gambar;
+  final String deskripsi;
+
+  BookWidget(this.judul, this.gambar, this.deskripsi) : super();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Text(this.judul),
+              Text(this.deskripsi),
+              Image.network(this.gambar)
+            ],
+          ),
+        ));
+  }
+}
