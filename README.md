@@ -100,3 +100,47 @@ class AppHome extends StatelessWidget {
 Langkah 3
 Jalankan emulator & programmnya, maka tampilannya adalah sebagai berikut:
 ![alt tag](https://1.bp.blogspot.com/-nlSHiS1kmss/XSRRgsph4XI/AAAAAAAAA7g/JanZvHLzvNAOWYFuJO3IdWejyg7FsFx0ACLcBGAs/s1600/run-appstateless.png)
+
+Langkah 4 
+Kita buat sebuah widget stateless baru, widget ini berfungsi untuk menampilkan gambar buku, gambar buku akan kita ambil dari https://openlibrary.org/dev/docs/api/books, berikut adalah kodenya:
+
+class BookWidget extends StatelessWidget {
+  final String judul;
+  final String gambar;
+  final String deskripsi;
+
+  BookWidget(this.judul, this.deskripsi, this.gambar) : super();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(children: <Widget>[
+        Text(judul),
+        Text(deskripsi),
+        Image.network(gambar),
+      ],),
+    );
+  }
+}
+  
+  Kemudian gantilah kode pada:
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text(this.title),
+    ),
+    body: Column(
+      children: <Widget>[
+        //Text('Belajar Stateless App'), // hapus kode ini
+        //Text('Ini adalah widget Text') // hapus kode ini
+
+        // ganti menjadi
+        BookWidget("Buku 1", "Deskripsi Buku 1", "https://covers.openlibrary.org/b/id/240726-S.jpg"),
+        BookWidget("Buku 2", "Deskripsi Buku 2", "https://covers.openlibrary.org/b/id/6121771-S.jpg")
+      ],
+    ),
+  );
+}
+
+Simpan dan lakukan hot reload, maka hasilnya sebagai berikut:
+![alt tag](https://1.bp.blogspot.com/-MsbxMKlUtbA/XSRR9XiMjCI/AAAAAAAAA7o/RUQjFkmBO_AdRpzacP0DvaJbRojUOLeZACLcBGAs/s1600/run-appstateless_book.png)
